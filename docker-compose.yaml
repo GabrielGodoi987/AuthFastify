@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: fastify-api
+    working_dir: /app
+    volumes:
+      - .:/app
+    networks:
+      - fastify-network
+    ports:
+      - "2000:2000"
+  redis:
+   image: 'redis:7.4'
+   ports:
+    - '6379:6379'
+
+networks:
+  fastify-network:
+    driver: bridge
