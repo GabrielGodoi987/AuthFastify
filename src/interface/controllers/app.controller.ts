@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { AppService } from "../../application/services/app.service";
+import { AppService } from "../../application/app/use-cases/app.service";
 
 export class AppController {
   constructor(private readonly appService: AppService) {}

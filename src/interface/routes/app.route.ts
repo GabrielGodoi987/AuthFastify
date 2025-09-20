@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { AppController } from "../controllers/app.controller";
-import { AppService } from "../../application/services/app.service";
+import { AppService } from "../../application/app/use-cases/app.service";
 
 export function appRoutesSetUp(app: FastifyInstance) {
   const service = new AppService();
