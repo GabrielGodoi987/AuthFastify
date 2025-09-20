@@ -1,6 +1,4 @@
-ARG image=node:21-alpine
-
-FROM ${image} AS builder
+FROM node:21-alpine AS builder
 
 RUN apk update && apk add --no-cache bash
 
@@ -12,6 +10,8 @@ RUN npm install
 
 COPY ./entrypoint.sh /entrypoint.sh
 
-RUN chmod +x /entrypoint.sh
+RUN npx prisma generate &&\
+    npx prisma migrate dev &&\ 
+    npm run build
 
-ENTRYPOINT [ "bash", "/entrypoint.sh" ]
+CMD [ "npm" ,"run", "start" ]
