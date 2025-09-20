@@ -13,5 +13,6 @@ echo "RUNNING CONTAINER COMMANDS"
 
 npx prisma generate
 npx prisma migrate dev
+# TODO: seed command goes here
 npm run build
 npm run start
